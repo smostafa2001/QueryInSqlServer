@@ -1,0 +1,33 @@
+USE NikamoozDB;
+GO
+
+CREATE TABLE Tbl1
+(
+	ID INT,
+	Code INT
+);
+GO
+
+CREATE TABLE Tbl2
+(
+	ID INT,
+	Code INT
+);
+GO
+
+INSERT INTO Tbl1
+	VALUES (2, 22), (1, 11), (3, 33), (100, 1000);
+GO
+INSERT INTO Tbl2
+	VALUES (20, 200), (10, 100), (30, 300);
+GO
+
+SELECT
+	ID, Code, 1 AS Col
+FROM Tbl1
+UNION ALL
+SELECT
+	ID, Code, 0 AS Col
+FROM Tbl2
+ORDER BY Col;
+GO
